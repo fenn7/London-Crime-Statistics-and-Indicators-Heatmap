@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>London's Crime by Borough</title>
+    <style>
+    body {
+        font-family: helvetica;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+    h1 {
+        text-align: center;
+    }
+    p {
+        text-align: center;
+    }
+    svg {
+        border: 1px solid #cccccc;
+        display: block;
+        margin: 0 auto;
+        background-color: #f8f8f8;
+    }
+    .tooltip {
+        position: absolute;
+        background: #000000;
+        color: #ffffff;
+        padding: 6px 10px;
+        border-radius: 4px;
+        pointer-events: none;
+        font-size: 12px;
+    }
+    input[type = "range"] {
+        accent-color: #ff0000;
+    }
+    </style>
+</head>
+<body>
+    <h1>Crime Rate in London by Borough</h1>
+    <p>Click on any borough to see relevant socio-economic indicators.</p>
+    <p>
+        <label for="year-slider" style="display: block; text-align: center; margin-bottom: 1rem;">
+            Displaying data from Year: <span id="year-label">2024</span>
+        </label>
+        <input type="range" id="year-slider" min="2015" max="2024" value="2024" step="1" style="width: 30%;">
+    </p>
+    <svg width="550" height="425"></svg> 
+    <div class="tooltip" style="display: none;"></div>
+    <p style="font-size: 12px;"">
+        Each colour category on the map is assigned to ~20% of the boroughs in the datasets.
+        <br>
+        i.e. the darkest shade represents the ~20% of boroughs with the highest crime rates.
+        <br>
+        Data for the City of London region is not included due to unavailability.
+    </p>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
